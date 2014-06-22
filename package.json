@@ -1,0 +1,8 @@
+{
+  "name": "socialapp",
+  "dependencies": {
+    "body-parser": "^1.4.3",
+    "express": "^4.4.4",
+    "mongodb": "^1.4.7"
+  }
+}
