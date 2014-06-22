@@ -3,6 +3,6 @@
   "dependencies": {
     "body-parser": "^1.4.3",
     "express": "^4.4.4",
-    "mongodb": "^1.4.7"
+    "mongoose": "^3.8.12"
   }
 }
