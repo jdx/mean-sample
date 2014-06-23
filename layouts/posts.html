@@ -30,7 +30,7 @@
 
     // create the PostsCtrl module
     // dependency inject $scope
-    app.controller('PostsCtrl', function ($scope) {
+    app.controller('PostsCtrl', function ($scope, $http) {
 
       // the function ran when the "Add Post" button is clicked
       $scope.addPost = function () {
@@ -46,17 +46,9 @@
         }
       }
 
-      // starting data
-      $scope.posts = [
-        {
-          username: 'dickeyxxx',
-          body: 'Node rules!'
-        },
-        {
-          username: 'jeffdickey',
-          body: 'trying out angular.js...'
-        }
-      ]
+      $http.get('/api/posts').success(function (posts) {
+        $scope.posts = posts
+      })
     })
   </script>
 </body>
