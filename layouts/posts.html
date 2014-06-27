@@ -17,39 +17,13 @@
       </div>
     </form>
     <ul class='list-group'>
-      <li ng-repeat='post in posts' class='list-group-item'>
+      <li ng-repeat="post in posts | orderBy:'-date'" class='list-group-item'>
         <strong>@{{ post.username }}</strong>
         <span>{{ post.body }}</span>
       </li>
     </ul>
   </div>
   <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.js'></script>
-  <script>
-    // create our app module
-    var app = angular.module('app', [])
-
-    // create the PostsCtrl module
-    // dependency inject $scope
-    app.controller('PostsCtrl', function ($scope, $http) {
-
-      // the function ran when the "Add Post" button is clicked
-      $scope.addPost = function () {
-        // Only add a post if there is a body
-        if ($scope.postBody) {
-          // unshift a new post into $scope.posts
-          $scope.posts.unshift({
-            username: 'dickeyxxx',
-            body: $scope.postBody // use the text entered
-          })
-          // clear out the input field
-          $scope.postBody = null
-        }
-      }
-
-      $http.get('/api/posts').success(function (posts) {
-        $scope.posts = posts
-      })
-    })
-  </script>
+  <script src='/app.js'></script>
 </body>
 </html>
