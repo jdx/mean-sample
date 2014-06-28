@@ -4,8 +4,9 @@
     "body-parser": "^1.4.3",
     "express": "^4.4.4",
     "gulp": "^3.8.5",
-    "gulp-concat": "^2.2.0",
+    "gulp-concat": "git://github.com/floridoo/gulp-concat#sourcemap_pipe2",
     "gulp-ng-annotate": "^0.2.0",
+    "gulp-sourcemaps": "^0.4.1",
     "gulp-uglify": "^0.3.1",
     "mongoose": "^3.8.12"
   }
