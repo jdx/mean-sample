@@ -15,7 +15,7 @@ angular.module('app')
     $scope.posts = posts
   })
 
-  $scope.$on('new_post', function (_, post) {
+  $scope.$on('ws:new_post', function (_, post) {
     $scope.$apply(function () {
       $scope.posts.unshift(post)
     });

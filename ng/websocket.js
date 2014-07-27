@@ -6,19 +6,18 @@ angular.module('app')
 
     connection.onopen = function (e) {
       console.log('WebSocket opened')
-      $rootScope.$broadcast('websocket_open', e)
+      $rootScope.$broadcast('ws:open', e)
     }
 
     connection.onclose = function (e) {
       console.log('WebSocket closed. Reconnecting...')
-      $rootScope.$broadcast('websocket_close', e)
+      $rootScope.$broadcast('ws:close', e)
       $timeout(connect, 10*1000)
     }
 
     connection.onmessage = function (e) {
-      console.log('WebSocket message:', e)
       var payload = JSON.parse(e.data)
-      $rootScope.$broadcast(payload.topic, payload.data)
+      $rootScope.$broadcast('ws:' + payload.topic, payload.data)
     }
   }
 
