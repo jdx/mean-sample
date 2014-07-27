@@ -1,7 +1,7 @@
 angular.module('app')
 .controller('LoginCtrl', function ($scope, $location, UserSvc) {
-  $scope.login = function (username, password) {
-    UserSvc.login(username, password)
+  $scope.login = function (user) {
+    UserSvc.login(user)
     .then(function() {
       $location.path('/')
     })

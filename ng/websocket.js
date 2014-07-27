@@ -1,6 +1,7 @@
 angular.module('app')
-.run(function ($window, $rootScope, $timeout) {
-  function connect() {
+.service('WebSocketSvc', function ($window, $rootScope, $timeout) {
+  var svc = this
+  this.connect = function () {
     var url = 'ws://localhost:3000'
     var connection = new $window.WebSocket(url)
 
@@ -12,7 +13,7 @@ angular.module('app')
     connection.onclose = function (e) {
       console.log('WebSocket closed. Reconnecting...')
       $rootScope.$broadcast('ws:close', e)
-      $timeout(connect, 10*1000)
+      $timeout(svc.connect, 10*1000)
     }
 
     connection.onmessage = function (e) {
@@ -20,6 +21,7 @@ angular.module('app')
       $rootScope.$broadcast('ws:' + payload.topic, payload.data)
     }
   }
-
-  connect()
+})
+.run(function (WebSocketSvc) {
+  WebSocketSvc.connect()
 })
