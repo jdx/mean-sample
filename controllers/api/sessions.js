@@ -9,10 +9,10 @@ router.post('/', function (req, res, next) {
   .select('password').select('username')
   .exec(function (err, user) {
     if (err) { return next(err) }
-    if (!user) { return res.send(401) }
+    if (!user) { return res.status(401).end() }
     bcrypt.compare(req.body.password, user.password, function (err, valid) {
       if (err) { return next(err) }
-      if (!valid) { return res.send(401) }
+      if (!valid) { return res.status(401).end() }
       var token = jwt.sign({username: user.username}, config.secret)
       res.send(token)
     })

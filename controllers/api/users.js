@@ -6,7 +6,7 @@ var config = require('../../config')
 
 router.get('/', function (req, res, next) {
   if (!req.auth) {
-    return res.send(401)
+    return res.status(401).end()
   }
   jwt.verify(req.headers['x-auth'], config.secret, function (err, auth) {
     if (err) { return next(err) }
@@ -24,7 +24,7 @@ router.post('/', function (req, res, next) {
     user.password = hash
     user.save(function (err) {
       if (err) { return next(err) }
-      res.send(201)
+      res.status(201).end()
     })
   })
 })
