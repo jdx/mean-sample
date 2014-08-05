@@ -1,5 +1,6 @@
 {
-  "name": "socialapp",
+  "name": "mean-sample",
+  "version": "0.0.0",
   "dependencies": {
     "bcrypt": "^0.8.0",
     "body-parser": "^1.5.2",
