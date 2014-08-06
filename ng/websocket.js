@@ -1,9 +1,15 @@
 angular.module('app')
 .service('WebSocketSvc', function ($window, $rootScope, $timeout) {
   var svc = this
+  this._websocketHost = function () {
+    if ($window.location.protocol === "https:") {
+      return "wss://" + $window.location.host
+    } else {
+      return "ws://" + $window.location.host
+    }
+  }
   this.connect = function () {
-    var url = 'ws://localhost:3000'
-    var connection = new $window.WebSocket(url)
+    var connection = new $window.WebSocket(svc._websocketHost())
 
     connection.onopen = function (e) {
       console.log('WebSocket opened')
