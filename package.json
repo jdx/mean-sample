@@ -1,6 +1,9 @@
 {
   "name": "mean-sample",
   "version": "0.0.0",
+  "repository": {
+    "github": "dickeyxxx/mean-sample"
+  },
   "dependencies": {
     "bcrypt": "^0.8.0",
     "body-parser": "^1.5.2",
