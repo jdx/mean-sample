@@ -19,5 +19,8 @@
     "morgan": "^1.2.2",
     "redis": "^0.11.0",
     "ws": "^0.4.31"
+  },
+  "devDependencies": {
+    "jshint": "^2.5.2"
   }
 }

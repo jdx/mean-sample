@@ -4,8 +4,11 @@ var cluster = require('cluster')
 
 cluster.setupMaster({exec: __dirname + '/server.js'})
 
+// workerIds returns the node cluster index for each worker
+function workerIds() { return Object.keys(cluster.workers) }
+
 // Gets the count of active workers
-function numWorkers() { return Object.keys(cluster.workers).length }
+function numWorkers() { return workerIds().length }
 
 var stopping = false
 
@@ -45,9 +48,9 @@ function stopNextWorker() {
 function stopAllWorkers() {
   stopping = true
   console.log('stopping all workers')
-  for (var id in cluster.workers) {
+  workerIds().forEach(function (id) {
     stopWorker(cluster.workers[id])
-  }
+  })
 }
 
 // Worker is now listening on a port
@@ -62,7 +65,7 @@ cluster.on('disconnect', forkNewWorkers)
 // HUP signal sent to the master process to start restarting all the workers sequentially
 process.on('SIGHUP', function() {
   console.log('restarting all workers')
-  workersToStop = Object.keys(cluster.workers)
+  workersToStop = workerIds()
   stopNextWorker()
 })
 
