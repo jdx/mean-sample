@@ -2,6 +2,7 @@ var Post = require('../../models/post')
 var router = require('express').Router()
 var pubsub = require('../../pubsub')
 var websockets = require('../../websockets')
+var auth = require('../../auth')
 
 router.get('/', function (req, res, next) {
   Post.find()
@@ -11,6 +12,8 @@ router.get('/', function (req, res, next) {
     res.json(posts)
   })
 })
+
+router.use(auth.required)
 
 router.post('/', function (req, res, next) {
   var post = new Post({body: req.body.body})

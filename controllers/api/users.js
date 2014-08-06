@@ -3,19 +3,7 @@ var bcrypt = require('bcrypt')
 var jwt = require('jsonwebtoken')
 var User = require('../../models/user')
 var config = require('../../config')
-
-router.get('/', function (req, res, next) {
-  if (!req.auth) {
-    return res.status(401).end()
-  }
-  jwt.verify(req.headers['x-auth'], config.secret, function (err, auth) {
-    if (err) { return next(err) }
-    User.findOne({username: auth.username}, function (err, user) {
-      if (err) { return next(err) }
-      res.json(user)
-    })
-  })
-})
+var auth = require('../../auth')
 
 router.post('/', function (req, res, next) {
   var user = new User({username: req.body.username})
@@ -25,6 +13,18 @@ router.post('/', function (req, res, next) {
     user.save(function (err) {
       if (err) { return next(err) }
       res.status(201).end()
+    })
+  })
+})
+
+router.use(auth.required)
+
+router.get('/', function (req, res, next) {
+  jwt.verify(req.headers['x-auth'], config.secret, function (err, auth) {
+    if (err) { return next(err) }
+    User.findOne({username: auth.username}, function (err, user) {
+      if (err) { return next(err) }
+      res.json(user)
     })
   })
 })

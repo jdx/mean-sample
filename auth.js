@@ -12,3 +12,11 @@ module.exports = function (req, res, next) {
     next()
   }
 }
+
+module.exports.required = function (req, res, next) {
+  if (!req.auth) {
+    return res.status(401).end()
+  } else {
+    next()
+  }
+}
