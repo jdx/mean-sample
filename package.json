@@ -5,8 +5,8 @@
     "github": "dickeyxxx/mean-sample"
   },
   "scripts": {
-    "test": "./node_modules/.bin/jshint . && ./node_modules/.bin/mocha && ./node_modules/.bin/protractor",
-    "postinstall": "gulp build"
+    "test": "./node_modules/.bin/jshint . && ./node_modules/karma/bin/karma start --single-run && ./node_modules/.bin/mocha && ./node_modules/.bin/protractor",
+    "postinstall": "bower install && gulp build"
   },
   "dependencies": {
     "bcrypt": "^0.8.0",
