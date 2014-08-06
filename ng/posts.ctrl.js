@@ -4,13 +4,13 @@ angular.module('app')
     if ($scope.post.body) {
       PostsSvc.create({
         body: $scope.post.body
-      }).success(function () {
+      }).then(function () {
         $scope.post.body = null
       })
     }
   }
 
-  PostsSvc.fetch().success(function (posts) {
+  PostsSvc.fetch().then(function (posts) {
     $scope.posts = posts
   })
 

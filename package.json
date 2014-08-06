@@ -33,6 +33,12 @@
     "chai": "^1.9.1",
     "chai-as-promised": "^4.1.1",
     "jshint": "^2.5.2",
+    "karma": "^0.12.21",
+    "karma-chai": "^0.1.0",
+    "karma-chrome-launcher": "^0.1.4",
+    "karma-jasmine": "^0.1.5",
+    "karma-mocha": "^0.1.6",
+    "karma-phantomjs-launcher": "^0.1.4",
     "mocha": "^1.21.3",
     "protractor": "^1.0.0",
     "supertest": "^0.13.0"
