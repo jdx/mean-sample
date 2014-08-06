@@ -24,6 +24,10 @@
     "ws": "^0.4.31"
   },
   "devDependencies": {
-    "jshint": "^2.5.2"
+    "chai": "^1.9.1",
+    "chai-as-promised": "^4.1.1",
+    "jshint": "^2.5.2",
+    "mocha": "^1.21.3",
+    "protractor": "^1.0.0"
   }
 }

@@ -11,7 +11,8 @@ app.use(require('./auth'))
 app.use('/api', require('./controllers/api'))
 app.use(require('./controllers/static'))
 
-var server = app.listen(3000, function () {
-  console.log('Server', process.pid, 'listening on', server.address().port)
+var port = process.env.PORT || 3000
+var server = app.listen(port, function () {
+  console.log('Server', process.pid, 'listening on', port)
 })
 websockets.connect(server)
