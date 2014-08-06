@@ -4,6 +4,9 @@
   "repository": {
     "github": "dickeyxxx/mean-sample"
   },
+  "scripts": {
+    "test": "./node_modules/.bin/mocha && ./node_modules/.bin/protractor"
+  },
   "dependencies": {
     "bcrypt": "^0.8.0",
     "body-parser": "^1.5.2",
