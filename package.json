@@ -5,7 +5,8 @@
     "github": "dickeyxxx/mean-sample"
   },
   "scripts": {
-    "test": "./node_modules/.bin/jshint . && ./node_modules/.bin/mocha && ./node_modules/.bin/protractor"
+    "test": "./node_modules/.bin/jshint . && ./node_modules/.bin/mocha && ./node_modules/.bin/protractor",
+    "postinstall": "gulp build"
   },
   "dependencies": {
     "bcrypt": "^0.8.0",
@@ -27,10 +28,12 @@
     "ws": "^0.4.31"
   },
   "devDependencies": {
+    "blanket": "^1.1.6",
     "chai": "^1.9.1",
     "chai-as-promised": "^4.1.1",
     "jshint": "^2.5.2",
     "mocha": "^1.21.3",
-    "protractor": "^1.0.0"
+    "protractor": "^1.0.0",
+    "supertest": "^0.13.0"
   }
 }

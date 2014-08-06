@@ -1,12 +1,11 @@
 angular.module('app')
 .controller('PostsCtrl', function ($scope, PostsSvc) {
   $scope.addPost = function () {
-    if ($scope.postBody) {
+    if ($scope.post.body) {
       PostsSvc.create({
-        username: 'dickeyxxx',
-        body: $scope.postBody
+        body: $scope.post.body
       }).success(function () {
-        $scope.postBody = null
+        $scope.post.body = null
       })
     }
   }
