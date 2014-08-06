@@ -5,7 +5,7 @@ router.use(express.static(__dirname + '/../assets'))
 router.use(express.static(__dirname + '/../templates'))
 
 router.get('*', function (req, res) {
-  res.sendfile('layouts/app.html')
+  res.render(__dirname + '/../index.html.ejs')
 })
 
 module.exports = router
