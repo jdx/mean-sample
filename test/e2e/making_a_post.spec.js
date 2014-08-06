@@ -17,13 +17,13 @@ describe('making a post', function () {
 
     // submit a new post on the posts page
     var post = 'my new post' + Math.random()
-    element(by.model('postBody')).sendKeys(post)
+    element(by.model('post.body')).sendKeys(post)
     element(by.css('form .btn')).click()
 
     expect(element.all(by.css('ul.posts li')).first().getText()).to.eventually.contain(post)
   })
 
   afterEach(function () {
-    db.connection.db.dropDatabase()
+    db.db.dropDatabase()
   })
 })
