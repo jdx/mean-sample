@@ -1,0 +1,33 @@
+box: wercker/nodejs
+services:
+    - wercker/redis
+    - wercker/mongodb
+packages:
+    - firefox
+build:
+    steps:
+      - script:
+          name: Enable virtual display
+          code: |-
+            # Start xvfb which gives the context an virtual display
+            # which is required for tests that require an GUI
+            export DISPLAY=:99.0
+            start-stop-daemon --start --quiet --pidfile /tmp/xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -screen 0 1024x768x24 -ac +extension GLX +render -noreset
+            # Give xvfb time to start. 3 seconds is the default for all xvfb-run commands.
+            sleep 3
+
+      - install-packages:
+          packages: firefox
+
+      - npm-install
+
+      - script:
+          name: update webdriver
+          code: ./node_modules/.bin/webdriver-manager update
+
+      - npm-test
+
+deploy:
+    steps:
+        - heroku-deploy:
+            key-name: DEPLOY_KEY

@@ -1,4 +1,7 @@
 exports.config = {
+  capabilities: {
+    browserName: "firefox"
+  },
   framework: 'mocha',
   specs: [
     'test/e2e/**/*.spec.js'
