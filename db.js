@@ -1,4 +1,4 @@
-var config = require('./config')
 var mongoose = require('mongoose')
-var db = mongoose.createConnection(config.mongoUrl)
-module.exports = db
+var url = process.env.MONGOLAB_URI || 'mongodb://localhost/social'
+mongoose.connect(url)
+module.exports = mongoose

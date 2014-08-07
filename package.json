@@ -6,7 +6,8 @@
   },
   "scripts": {
     "test": "./node_modules/.bin/jshint . && ./node_modules/karma/bin/karma start --single-run && ./node_modules/.bin/mocha && ./node_modules/.bin/protractor",
-    "postinstall": "bower install && gulp build"
+    "start": "node boot.js",
+    "postinstall": "gulp build"
   },
   "dependencies": {
     "bcrypt": "^0.8.0",
@@ -25,7 +26,7 @@
     "lodash": "^2.4.1",
     "mongoose": "^3.8.14",
     "morgan": "^1.2.2",
-    "redis-url": "^0.2.0",
+    "redis": "^0.12.1",
     "ws": "^0.4.31"
   },
   "devDependencies": {
