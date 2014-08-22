@@ -1,5 +1,5 @@
 var redis = require('redis')
-var url = process.env.REDISTOGO_URL || 'redis://localhost:6379'
+var url = process.env.REDIS_URL || process.env.REDISTOGO_URL || 'redis://localhost:6379'
 var host = require('url').parse(url)
 
 function newClient() {
