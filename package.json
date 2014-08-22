@@ -7,7 +7,7 @@
   "scripts": {
     "test": "./node_modules/.bin/jshint . && ./node_modules/karma/bin/karma start --single-run && ./node_modules/.bin/mocha && ./node_modules/.bin/protractor",
     "start": "node boot.js",
-    "postinstall": "./node_modules/.bin/gulp build && ./node_modules/.bin/bower install"
+    "postinstall": "./node_modules/.bin/bower install && ./node_modules/.bin/gulp build"
   },
   "dependencies": {
     "bcrypt": "^0.8.0",
