@@ -1,4 +1,3 @@
-var db = require('../../db')
 var chai = require('chai')
 chai.use(require('chai-as-promised'))
 var expect = chai.expect
@@ -21,9 +20,5 @@ describe('making a post', function () {
     element(by.css('form .btn')).click()
 
     expect(element.all(by.css('ul.posts li')).first().getText()).to.eventually.contain(post)
-  })
-
-  afterEach(function () {
-    db.db.dropDatabase()
   })
 })
