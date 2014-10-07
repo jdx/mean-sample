@@ -4,5 +4,5 @@ fs.readdirSync(__dirname + '/gulp').forEach(function (task) {
   require('./gulp/' + task)
 })
 
-gulp.task('build', ['js'])
-gulp.task('watch', ['watch:js'])
+gulp.task('build', ['js', 'css'])
+gulp.task('watch', ['watch:js', 'watch:css'])
