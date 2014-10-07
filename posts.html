@@ -26,7 +26,7 @@
     <script src='http://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-rc.4/angular.js'></script>
     <script>
       var app = angular.module('app', [])
-      app.controller('PostsCtrl', function ($scope) {
+      app.controller('PostsCtrl', function ($scope, $http) {
         $scope.addPost = function () {
           if ($scope.postBody) {
             $scope.posts.unshift({
@@ -36,16 +36,10 @@
           }
         }
 
-        $scope.posts = [
-          {
-            username: 'dickeyxxx',
-            body: 'Node rules!'
-          },
-          {
-            username: 'jeffdickey',
-            body: 'been trying out angular.js...'
-          }
-        ]
+        $http.get('http://localhost:3000/api/posts')
+        .success(function (posts) {
+          $scope.posts = posts
+        })
       })
     </script>
   </body>
