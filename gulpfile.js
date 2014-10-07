@@ -10,3 +10,7 @@ gulp.task('js', function () {
     .pipe(uglify())
     .pipe(gulp.dest('assets'))
 })
+
+gulp.task('watch:js', ['js'], function () {
+  gulp.watch('ng/**/*.js', ['js'])
+})
