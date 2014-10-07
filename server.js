@@ -25,6 +25,10 @@ app.post('/api/posts', function (req, res, next) {
   })
 })
 
+app.get('/', function (req, res) {
+  res.sendFile(__dirname + '/layouts/posts.html')
+})
+
 app.listen(3000, function () {
   console.log('server listening on', 3000)
 })
