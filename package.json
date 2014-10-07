@@ -1,6 +1,7 @@
 {
   "name": "jwt-express-demo",
   "dependencies": {
+    "bcrypt": "^0.8.0",
     "body-parser": "^1.9.0",
     "express": "^4.9.5",
     "jwt-simple": "^0.2.0",
