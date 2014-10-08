@@ -1,9 +1,11 @@
 var express    = require('express')
 var bodyParser = require('body-parser')
 var Post       = require('./models/post')
+var logger     = require('morgan')
 
 var app = express()
 app.use(bodyParser.json())
+app.use(logger('dev'))
 
 app.get('/api/posts', function (req, res, next) {
   Post.find(function (err, posts) {
