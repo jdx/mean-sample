@@ -10,3 +10,4 @@ app.use(require('./controllers'))
 var server = app.listen(3000, function () {
   console.log('server listening on %d', server.address().port)
 })
+require('./websockets').connect(server)
