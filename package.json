@@ -1,7 +1,7 @@
 {
   "name": "socialapp",
   "scripts": {
-    "test": "jshint . && mocha && protractor"
+    "test": "jshint . && mocha && ./node_modules/karma/bin/karma start --single-run && protractor"
   },
   "dependencies": {
     "body-parser": "^1.9.0",
@@ -22,6 +22,11 @@
   "devDependencies": {
     "chai": "^1.9.2",
     "chai-as-promised": "^4.1.1",
+    "karma": "^0.12.24",
+    "karma-chai": "^0.1.0",
+    "karma-mocha": "^0.1.9",
+    "karma-phantomjs-launcher": "^0.1.4",
+    "karma-sinon-chai": "^0.2.0",
     "mocha": "^1.21.4",
     "protractor": "^1.3.1",
     "supertest": "^0.14.0"
