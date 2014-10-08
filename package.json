@@ -1,6 +1,7 @@
 {
   "name": "socialapp",
   "scripts": {
+    "start": "node boot.js",
     "test": "jshint . && mocha && ./node_modules/karma/bin/karma start --single-run && protractor"
   },
   "dependencies": {
