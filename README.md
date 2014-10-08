@@ -1,5 +1,7 @@
 Sample project for [Write Modern Web Apps with the MEAN Stack](http://www.amazon.com/Write-Modern-Apps-MEAN-Stack/dp/0133930157) by [Jeff Dickey](https://dickey.xxx)
 
+[![Write Modern Web Apps with the MEAN Stack](book.jpg)](http://www.amazon.com/Write-Modern-Apps-MEAN-Stack/dp/0133930157)
+
 This repo has separate branches for each chapter with code for each one to follow along.
 
 Changes
