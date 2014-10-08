@@ -2,10 +2,12 @@
   "name": "socialapp",
   "scripts": {
     "start": "node boot.js",
-    "test": "jshint . && mocha && ./node_modules/karma/bin/karma start --single-run && protractor"
+    "test": "jshint . && mocha && ./node_modules/karma/bin/karma start --single-run && protractor",
+    "postinstall": "bower install && gulp build"
   },
   "dependencies": {
     "body-parser": "^1.9.0",
+    "bower": "^1.3.12",
     "ejs": "^1.0.0",
     "express": "^4.9.5",
     "gulp": "^3.8.8",
