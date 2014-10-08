@@ -19,7 +19,9 @@ Instead of defining each of the controllers inside `server.js`, I found it a lit
 
 This way `server.js` only needs the following:
 
-    app.use(require('./controllers'))
+```javascript
+app.use(require('./controllers'))
+```
 
 Then the controller can mount sub-controllers, here is `controllers/index.js`:
 
@@ -36,10 +38,14 @@ Also, I found it better to only namespace the api to `/api` at this point, and n
 
 In other words, for `/api/users`, I found
 
-    router.get('/users', function (req, res, next) {
+```javascript
+router.get('/users', function (req, res, next) {
+```
 
 preferable to having `/users` defined higher up and having the action look like this:
 
-    router.get('/', function (req, res, next) {
+```javascript
+router.get('/', function (req, res, next) {
+```
 
 The reason is that it makes it easier to find routes since the actions will already have most of the url in them, it takes less hunting in files to get the actual URL. It's still useful to prefix `/api` as it can be helpful for a 404 endpoint or perhaps a versioning setup.
