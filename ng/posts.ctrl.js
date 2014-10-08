@@ -3,10 +3,9 @@ angular.module('app')
   $scope.addPost = function () {
     if ($scope.postBody) {
       PostsSvc.create({
-        username: 'dickeyxxx',
         body:     $scope.postBody
       })
-      .success(function () {
+      .then(function () {
         $scope.postBody = null
       })
     }
@@ -19,7 +18,7 @@ angular.module('app')
   })
 
   PostsSvc.fetch()
-  .success(function (posts) {
+  .then(function (posts) {
     $scope.posts = posts
   })
 })
