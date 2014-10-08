@@ -7,7 +7,7 @@ app.use(bodyParser.json())
 app.use(logger('dev'))
 app.use(require('./controllers'))
 
-var server = app.listen(3000, function () {
+var server = app.listen(process.env.PORT || 3000, function () {
   console.log('server listening on %d', server.address().port)
 })
 require('./websockets').connect(server)
