@@ -60,7 +60,7 @@ cluster.on('listening', stopNextWorker)
 // A worker has disconnected either because the process was killed
 // or we are processing the workersToStop array restarting each process
 // In either case, we will fork any workers needed
-cluster.on('disconnect', forkNewWorkers)
+cluster.on('exit', forkNewWorkers)
 
 // HUP signal sent to the master process to start restarting all the workers sequentially
 process.on('SIGHUP', function() {
