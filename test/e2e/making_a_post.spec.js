@@ -13,7 +13,10 @@ describe('making a post', function () {
     element(by.model('username')).sendKeys('dickeyxxx')
     element(by.model('password')).sendKeys('pass')
     element(by.css('form .btn')).click()
-
+    
+    // Navigate to the posts page
+    element(by.css('nav .posts')).click();
+    
     // submit a new post on the posts page
     var post = 'my new post' + Math.random()
     element(by.model('postBody')).sendKeys(post)
